@@ -1,8 +1,16 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Settings } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Settings } from "lucide-react";
 
 const Header = () => {
   return (
@@ -45,7 +53,22 @@ const Header = () => {
         >
           Register
         </Link>
-        <Settings />
+        <div className="mr-4 bg-orange-300 ">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="secondary" size="icon" className="outline-none">
+                <Settings width={22} height={22} />
+              </Button>
+              {/* <Settings /> */}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Language</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Japanese</DropdownMenuItem>
+              <DropdownMenuItem>English</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </header>
   );
